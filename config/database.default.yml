@@ -1,3 +1,4 @@
+# Remove the default and change the settings if neccessary
 
 default: &default
   adapter: postgresql
