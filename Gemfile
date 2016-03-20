@@ -21,6 +21,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rubocop'
   gem 'spring'
   gem 'web-console', '~> 2.0'
 end
