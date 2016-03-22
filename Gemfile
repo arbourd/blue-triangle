@@ -14,7 +14,7 @@ gem 'tzinfo-data'
 gem 'uglifier', '>= 1.3.0'
 
 group :production do
-  gem 'unicorn'
+  # gem 'unicorn' Disable Unicorn for Windows users
 end
 
 group :development, :test do
