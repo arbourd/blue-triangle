@@ -1,0 +1,48 @@
+<% content_for(:calendar) do %>
+<%= params[:temp] %>
+
+
+<div id="articles">
+  <div id="month">
+    
+    <div id="prev">
+    <!--<%= link_to image_tag("prev.png", :height=>40, :margin=>-10), date: @date.prev_month %>-->
+   
+    
+    <%= link_to date: @date.prev_month do
+    image_tag("prev.png", :height=>40, :margin=>-10,onmouseover: "this.src='#{asset_path('prev_hover.png')}'", onmouseout: "this.src='#{asset_path('prev.png')}'")
+end %>
+    
+    </div>
+ <div id="current">
+ 
+    <%= @date.strftime("%B %Y") %>
+  
+ </div>
+ <div id="next">
+  
+    <!--<%= link_to image_tag("next.png", :height=>40), date: @date.next_month %>-->
+        <%= link_to date: @date.next_month do
+    image_tag("next.png", :height=>40, onmouseover: "this.src='#{asset_path('next_hover.png')}'", onmouseout: "this.src='#{asset_path('next.png')}'")
+end %>
+    </div>
+    
+  </div>
+  <div style="clear: both;">
+  <%= calendar @date do |date| %>
+    <% if @date.month == date.month %>
+      <% if Date.today < date %>
+  
+     <%= link_to date.day, reservations_path(:selectedDate=>date)%>
+    
+      <% else %>
+      
+        <%= date.day %>
+        
+     
+      <% end %>
+    <% end %>
+  <% end %>
+  </div>
+</div>
+<% end %>
