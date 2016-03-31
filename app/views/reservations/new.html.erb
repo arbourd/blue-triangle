@@ -1,5 +1,8 @@
+<% content_for(:reservations) do %>
 <h1>New Reservation</h1>
-
+<!--<%= link_to 'Back', reservations_path %><br/><br/><br/>-->
+<div class="goBack"><%= link_to  image_tag("back.png", :height=>40, :margin=>-10, onmouseover: "this.src='#{asset_path('back_hover.png')}'", onmouseout: "this.src='#{asset_path('back.png')}'"), reservations_path %></div>
+<!--<%= params[:date] %>-->
 <%= render 'form' %>
 
-<%= link_to 'Back', reservations_path %>
+<% end %>
