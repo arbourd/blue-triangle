@@ -13,6 +13,7 @@ class ReservationsController < ApplicationController
   # GET /reservations/new
   def new
     @reservation = Reservation.new
+    @date = params[:date]? Date.parse(params[:date]) : Date.today
   end
 
   # GET /reservations/1/edit
