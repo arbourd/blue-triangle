@@ -1,57 +1,30 @@
-
 <%= form_for(@reservation) do |f| %>
   <% if @reservation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
-
       <ul>
-      <% @reservation.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @reservation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-  <div id='container' style="width:800px; margin:0 auto;">
-<%= render :template => 'reservations/_calendar' %>
-<div id='left' style="float:left; width:400px;height:400px;" >
-  <!--
-  <div class="field" style="margin-left:100px;">
-    <%= f.label :course_id %><br>
-    <%= f.number_field :course_id %>
-  </div>
-  <div class="field">
-    <%= f.label :member_id %><br>
-    <%= f.number_field :member_id %>
-  </div>
-    <div class="actions">
-    <%= f.submit %>
-  </div>
-    -->
-  <table style="margin-left: 20px;margin-top: 20px;">
-    <tr class="field">
-      <td><%= f.label :course_id %></td>
-      <td><%= f.number_field :member_id %></td>
-      
-    </tr>
-    <tr class="field">
-      <td><%= f.label :member_id %></td>
-      <td><%= f.number_field :member_id %></td>
-    </tr>
-     <tr class="actions">
-      <td colspan="2"><%= f.submit %></td>
-      
-    </tr>
-  </table>
-  <!--
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
-  </div>
-  
- -->
-  
-
-  
-  </div>
+  <div id="container" style="width:800px; margin:0 auto;">
+    <%= render template: 'reservations/_calendar' %>
+    <div id="left" style="float:left; width:400px; height:400px;" >
+      <table style="margin-left: 20px;margin-top: 20px;">
+        <tr class="field">
+          <td><%= f.label :course_id %></td>
+          <td><%= f.number_field :member_id %></td>
+        </tr>
+        <tr class="field">
+          <td><%= f.label :member_id %></td>
+          <td><%= f.number_field :member_id %></td>
+        </tr>
+        <tr class="actions">
+          <td colspan="2"><%= f.submit %></td>
+        </tr>
+      </table>
+    </div>
   </div>
 <% end %>
