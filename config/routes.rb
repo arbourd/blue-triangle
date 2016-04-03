@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  root 'reservations#new'
+
+  devise_for :members
 
   resources :reservations
-  devise_for :members
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

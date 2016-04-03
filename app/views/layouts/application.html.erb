@@ -1,30 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Clubeg</title>
+  <title>Executive Golf - Club EG</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  
-  
 </head>
 <body>
-<%= image_tag "eg_logo.gif"%>
-<hr/>
- <div id='cssmenu'>
-<ul>
-   <li><a href="#"><span>Book Spot</span></a></li>
-   <li><a href='#'><span>My Booking</span></a></li>
-   <li><a href='#'><span>Edit Profile</span></a></li>
-   <li class='last'><a href='#'><span>Logout</span></a></li>
- 
-  
-</ul>
-</div>
-<div id="content">
-<!--<%= yield(:calendar) if content_for?(:calendar) %>-->
-<%= yield(:reservations) if content_for?(:reservations) %>
-<%= yield(:reservations/new) if content_for?(:reservations_new) %>
-</div>
+  <%= image_tag "eg_logo.gif"%>
+  <hr/>
+  <div id="cssmenu">
+    <ul>
+      <li><a href="#"><span>Book Spot</span></a></li>
+      <li><a href="#"><span>My Booking</span></a></li>
+      <li><a href="#"><span>Edit Profile</span></a></li>
+      <li class="last"><a href="#"><span>Logout</span></a></li>
+    </ul>
+  </div>
+  <div id="content">
+    <%= yield %>
+  </div>
 </body>
 </html>
