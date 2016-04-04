@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  # GET /reservations
+  # GET /members/name/:number
   def name
     member = Member.find_by(number: params[:number])
 
