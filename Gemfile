@@ -6,6 +6,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'pg'
 gem 'pundit'
+gem 'rack-attack'
 gem 'rails', '4.2.5.1'
 gem 'sass-rails', '~> 5.0'
 gem 'sendgrid-ruby'
@@ -17,6 +18,7 @@ group :production do
 end
 
 group :development, :test do
+  gem 'awesome_print'
   gem 'byebug'
 end
 

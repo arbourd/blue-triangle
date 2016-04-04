@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root 'reservations#new'
 
-  devise_for :members
+  devise_for :members, skip: [:registerable], path: '',
+                       path_names: { sign_in: 'login', sign_out: 'logout' }
   get 'members/name/:number' => 'members#name'
 
   resources :courses

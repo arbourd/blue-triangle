@@ -7,15 +7,14 @@ class MembersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test 'should get index' do
+  test 'should return not-found when member is not found' do
     sign_in members(:one)
     get :name, number: -1
     assert_response 404
   end
 
-  test 'must be logged in' do
-    assert_raises UncaughtThrowError do
-      get :name, number: 1
-    end
+  test 'redirects unless logged in' do
+    get :name, number: 1
+    assert_response 302
   end
 end
