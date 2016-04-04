@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :set_reservation, only: [:show, :destroy]
 
   # GET /reservations
   def index
@@ -16,27 +16,15 @@ class ReservationsController < ApplicationController
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
-  # GET /reservations/1/edit
-  def edit
-  end
-
   # POST /reservations
   def create
     @reservation = Reservation.new(reservation_params)
+    @reservation.member = current_member
 
     if @reservation.save
       redirect_to @reservation, notice: 'Reservation was successfully created.'
     else
       render :new
-    end
-  end
-
-  # PATCH/PUT /reservations/1
-  def update
-    if @reservation.update(reservation_params)
-      redirect_to @reservation, notice: 'Reservation was successfully updated.'
-    else
-      render :edit
     end
   end
 
@@ -55,6 +43,6 @@ class ReservationsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def reservation_params
-    params.require(:reservation).permit(:course_id, :member_id, :date)
+    params.require(:reservation).permit(:course_id, :date)
   end
 end

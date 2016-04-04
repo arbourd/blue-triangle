@@ -19,7 +19,8 @@ class ReservationsControllerTest < ActionController::TestCase
 
   test 'should create reservation' do
     assert_difference('Reservation.count') do
-      post :create, reservation: { course_id: @reservation.course_id, date: Date.today + rand, member_id: @reservation.member_id }
+      post :create, reservation: { course_id: @reservation.course_id,
+                                   date: Date.today + rand }
     end
 
     assert_redirected_to reservation_path(assigns(:reservation))
