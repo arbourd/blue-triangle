@@ -1,9 +1,11 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :destroy]
+  after_action :verify_authorized, only: [:show, :destroy]
+  after_action :verify_policy_scoped, only: :index
 
   # GET /reservations
   def index
-    @reservations = Reservation.all
+    @reservations = policy_scope(Reservation)
   end
 
   # GET /reservations/1
@@ -39,6 +41,7 @@ class ReservationsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_reservation
     @reservation = Reservation.find(params[:id])
+    authorize @reservation
   end
 
   # Only allow a trusted parameter "white list" through.

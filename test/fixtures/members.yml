@@ -1,4 +1,11 @@
 one:
+  email: 'test1@eg.ca'
   fname: 'Test'
   lname: 'Member 1'
   number: 1
+
+two:
+  email: 'test2@eg.ca'
+  fname: 'Test'
+  lname: 'Member 2'
+  number: 1111

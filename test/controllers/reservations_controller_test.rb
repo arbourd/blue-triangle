@@ -12,6 +12,13 @@ class ReservationsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:reservations)
   end
 
+  test 'should get index of only users reservations' do
+    sign_in members(:two)
+    get :index
+    assert_response :success
+    assert_empty assigns(:reservations)
+  end
+
   test 'should get new' do
     get :new
     assert_response :success
@@ -31,11 +38,27 @@ class ReservationsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test 'should not show reservation if not owned by member' do
+    sign_in members(:two)
+    assert_raises Pundit::NotAuthorizedError do
+      get :show, id: @reservation
+    end
+  end
+
   test 'should destroy reservation' do
     assert_difference('Reservation.count', -1) do
       delete :destroy, id: @reservation
     end
 
     assert_redirected_to reservations_path
+  end
+
+  test 'should not destroy reservation if not owned by member' do
+    sign_in members(:two)
+    assert_no_difference('Reservation.count') do
+      assert_raises Pundit::NotAuthorizedError do
+        delete :destroy, id: @reservation
+      end
+    end
   end
 end
