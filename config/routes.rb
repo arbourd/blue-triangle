@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'reservations#new'
 
   devise_for :members
+  get 'members/name/:number' => 'members#name'
 
   resources :reservations
   # The priority is based upon order of creation: first created -> highest priority.
