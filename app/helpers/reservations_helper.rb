@@ -1,4 +1,5 @@
 module ReservationsHelper
+
   def calendar(date = Date.today, &block)
     Calendar.new(self, date, block).table
   end
@@ -36,8 +37,8 @@ module ReservationsHelper
       classes = []
       classes << 'today' if day == Date.today && day.month == date.month
       classes << 'notmonth' if day.month != date.month
-      classes << 'inactive' if day < Date.today
-      classes << 'active' if day >= Date.today
+      classes << 'inactive' if day < Date.today || day > Date.today + Course::MAX_DAYS
+      classes << 'active' if day >= Date.today && day <= Date.today + Course::MAX_DAYS
       classes.empty? ? nil : classes.join(' ')
     end
 

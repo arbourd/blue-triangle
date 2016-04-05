@@ -2,8 +2,8 @@
 <div id="articles">
   <div id="month"><a name="pos1"/>
     <div id="prev"><a name="pos1"/>
-      <%=
-        link_to image_tag(
+     <% if @date.prev_month.month >= Date.today.month %>
+      <%= link_to image_tag(
           'prev.png',
           height: 40,
           margin: -10,
@@ -13,35 +13,42 @@
         date: @date.prev_month,
         anchor: "?#pos1"
       %>
+     <% else %>
+       <%= image_tag('prev.png', height: 40, margin: -10) %>
+     <% end %>
     </div>
     <div id="current">
       <%= @date.strftime("%B %Y") %>
     </div>
     <div id="next">
-      <%= link_to image_tag(
-          'next.png',
-          height: 40,
-          margin: -10,
-          onmouseover: "this.src='#{asset_path('next_hover.png')}'",
-          onmouseout: "this.src='#{asset_path('next.png')}'"
-        ),
-        date: @date.next_month,
-        anchor: "?#pos1"
-      %>
+      <% if @date.next_month.month <= (Date.today + Course::MAX_DAYS).month %>
+        <%= link_to image_tag(
+            'next.png',
+            height: 40,
+            margin: -10,
+            onmouseover: "this.src='#{asset_path('next_hover.png')}'",
+            onmouseout: "this.src='#{asset_path('next.png')}'"
+          ),
+          date: @date.next_month,
+          anchor: "?#pos1"
+        %>
+      <% else %>
+        <%= image_tag('next.png', height: 40, margin: -10) %>
+      <% end %>
     </div>
   </div>
   <div style="clear: both;">
     <%= calendar @date do |date| %>
       <% if @date.month == date.month %>
-        <% if Date.today < date  %>
+        <% if Date.today < date  && Date.today + Course::MAX_DAYS >= date %>
           <a href="#pos1?date=<%= date %>" onclick="
             $('.active').css('background','#66201a');
             $(this).parent().css('background','#450c08');"
           ><%= date.day %></a>
       <% else %>
         <%= date.day %>
+        <% end %>
       <% end %>
-    <% end %>
   <% end %>
   </div>
 </div>
