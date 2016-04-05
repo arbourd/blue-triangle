@@ -1,25 +1,14 @@
-<% content_for(:devise) do %>
 <script>var topMenu = document.getElementById("cssmenu")
 topMenu.hidden = true;
 </script>
     <style>
-      .field{ text-align: center;
-        font-size: 20px;;
-      }
-
-      .actions{ text-align: center;
-      }
-
-      .links{ text-align: center;
-        font-size: 14px;
-      }
 
     </style>
   <br>
 <h2 style="text-align: center; font-size: 30px;">Login</h2>
     <br>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field" style="text-align: center">
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
@@ -41,4 +30,3 @@ topMenu.hidden = true;
 <% end %>
 
 <p class="links"><%= render 'devise/shared/links' %></p>
-<% end %>
