@@ -35,10 +35,10 @@ module ReservationsHelper
 
     def day_classes(day)
       classes = []
-      classes << 'today' if day == Date.today && day.month == date.month
+     # classes << 'today' if day == Date.today && day.month == date.month
       classes << 'notmonth' if day.month != date.month
-      classes << 'inactive' if day < Date.today || day > Date.today + Course::MAX_DAYS
-      classes << 'active' if day >= Date.today && day <= Date.today + Course::MAX_DAYS
+      classes << 'inactive' if day < Date.today || day >= Date.today + Course::MAX_DAYS
+      classes << 'active' if day >= Date.today && day < Date.today + Course::MAX_DAYS
       classes.empty? ? nil : classes.join(' ')
     end
 
