@@ -1,10 +1,9 @@
-<p id="notice"><%= notice %></p>
+<br>
+<h1>Reservations For <%= current_member.full_name %></h1>
 
-<h1>Listing Reservations</h1>
-
-<table>
+<table align="center" width="600">
   <thead>
-    <tr>
+    <tr id="tblHead">
       <th>Course</th>
       <th>Member</th>
       <th>Date</th>
@@ -14,18 +13,21 @@
 
   <tbody>
     <% @reservations.each do |reservation| %>
+     <% if reservation.member_id == current_member.id %>
       <tr>
-        <td><%= reservation.course_id %></td>
-        <td><%= reservation.member_id %></td>
+        <td><%= reservation.course.name %></td>
+        <td><%= reservation.member.full_name %></td>
         <td><%= reservation.date %></td>
         <td><%= link_to 'Show', reservation %></td>
         <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
         <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+     <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Reservation', new_reservation_path %>
+<p><%= link_to 'New Reservation', new_reservation_path %></p>
+

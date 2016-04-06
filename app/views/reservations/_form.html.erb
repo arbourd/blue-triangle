@@ -9,13 +9,18 @@
       </ul>
     </div>
   <% end %>
+
   <div id="container" style="width:800px; margin:0 auto;">
     <%= render template: 'reservations/_calendar' %>
     <div id="left" style="float:left; width:400px; height:400px;" >
       <table style="margin-left: 20px;margin-top: 20px;">
         <tr class="field">
           <td><%= f.label :course_id %></td>
-          <td><%= f.number_field :course_id %></td>
+          <td><%= f.collection_select :course_id, Course.order(:name), :id, :name, include_blank: "Pick a course..." %></td>
+        </tr>
+        <tr class="field">
+          <td><%= f.label :date %></td>
+          <td><%= f.text_field :date, :readonly => true, :id => "selDate", :placeholder => "Pick from calender" %></td>
         </tr>
         <tr class="actions">
           <td colspan="2"><%= f.submit %></td>

@@ -32,6 +32,14 @@ Member.create!(
       fname: 'Test',
       lname: 'Account 3',
       number: 1235
+    },
+    {
+      email: 'cherryj@eg.ca',
+      password: 'golferjeff',
+      password_confirmation: 'golferjeff',
+      fname: 'Jeff',
+      lname: 'Cherry',
+      number: 1000
     }
   ]
 )
