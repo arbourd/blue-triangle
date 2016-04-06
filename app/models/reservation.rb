@@ -10,9 +10,7 @@ class Reservation < ActiveRecord::Base
   validate :member_bookings_per_course, on: :create
 
   def course_active
-    unless course.active?
-      errors.add(:errors, "Course '#{course.name}' is inactive")
-    end
+    errors.add(:errors, "Course '#{course.name}' is inactive") unless course.active?
   end
 
   def course_available_slots

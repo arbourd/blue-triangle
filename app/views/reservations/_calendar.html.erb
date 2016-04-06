@@ -40,13 +40,12 @@
   <div style="clear: both;">
     <%= calendar @date do |date| %>
       <% if @date.month == date.month %>
-        <% if Date.today < date  && Date.today + Course::MAX_DAYS >= date %>
-          <a href="#pos1?date=<%= date %>" onclick="
+        <% if Date.today <= date  && Date.today + Course::MAX_DAYS >= date %>
+          <a onclick="getDate(<%= date.year %>, <%= date.month %>, <%= date.day %>)
             $('.active').css('background','#66201a');
-            $(this).parent().css('background','#450c08');"
-          ><%= date.day %></a>
-      <% else %>
-        <%= date.day %>
+            $(this).parent().css('background','#450c08');">
+            <%= date.day %></a>
+         
         <% end %>
       <% end %>
   <% end %>
