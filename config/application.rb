@@ -1,7 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-require 'awesome_print'
+require 'awesome_print' unless Rails.env.production?
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
