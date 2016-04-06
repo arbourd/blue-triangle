@@ -1,4 +1,6 @@
 class Reservation < ActiveRecord::Base
+  enum status: [:pending, :confirmed, :cancelled]
+
   belongs_to :course
   belongs_to :member
 
