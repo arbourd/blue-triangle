@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   # GET /courses
   def index
-    date = params[:date] || Date.today
+    date = params[:date] ? Date.parse(params[:date]) : Date.today
     courses = Course.where(active: true)
 
     list = courses.map do |c|
