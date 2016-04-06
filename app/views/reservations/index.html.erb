@@ -1,9 +1,9 @@
 <br>
-<h1 style="text-align: center;">Reservations For <%= current_member.full_name %></h1>
+<h1>Reservations For <%= current_member.full_name %></h1>
 
-<table align="center" border="1" width="600">
+<table align="center" width="600">
   <thead>
-    <tr>
+    <tr id="tblHead">
       <th>Course</th>
       <th>Member</th>
       <th>Date</th>
@@ -29,5 +29,5 @@
 
 <br>
 
-<p style="text-align: center"><%= link_to 'New Reservation', new_reservation_path %></p>
+<p><%= link_to 'New Reservation', new_reservation_path %></p>
 
