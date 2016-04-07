@@ -150,9 +150,50 @@ p{ text-align: center;
 h1{ text-align: center;
 }
 
-#tblHead{ background: #66201a;
-          color: white;
+thead{ background: #66201a;
+       color: white;
 }
 
-th{ background: #66201a;
+table tr:nth-child(even){ background-color: #fff7c3;
+}
+
+table th{ height: 40px;
+}
+
+table td{ height: 35px;
+    text-align: center;
+}
+
+.pending{ color: yellow;
+}
+
+.confirmed{ color: green;
+}
+
+.cancelled{ color: red;
+}
+
+.leftSide{ margin-left: 350px;
+           margin-top: 45px;
+           width: 300px;
+           position: relative;
+}
+
+.rightSide{ text-align: left;
+           width: 300px;
+           margin-left: 825px;
+           margin-top: -175px;
+           position: relative;
+}
+
+#tblDeets td{ text-align: left;
+              font-size: 16px;
+              font-size: 16px;
+              height: 75px;
+}
+
+#tblDeets tr:nth-child(even){ background: white;
+}
+
+#tblDeets { margin-left: 325px;
 }
