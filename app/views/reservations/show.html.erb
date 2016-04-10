@@ -1,6 +1,5 @@
-<p id="notice"><%= notice %></p>
 <br/>
-<h1>Booking Details</h1>
+<h1 id="deetHead">Booking Details</h1>
 <br/>
 <%= form_for(@reservation) do |f| %>
 <table align="center" width="800" id="tblDeets">
@@ -33,11 +32,11 @@
    <td>
     <b><%= f.label "Status:" %></b>
     <% if @reservation.status == "pending" %>
-      <%= f.label @reservation.status, class: "pending" %>
+     <b><%= f.label @reservation.status, class: "pending" %></b>
     <% elsif @reservation.status == "confirmed" %>
-      <%= f.label @reservation.status, class: "confirmed" %>
+     <b><%= f.label @reservation.status, class: "confirmed" %></b>
     <% else %>
-      <%= f.label @reservation.status, class: "cancelled" %>
+     <b><%= f.label @reservation.status, class: "cancelled" %></b>
     <% end %>
    </td>
   </tr>
