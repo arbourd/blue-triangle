@@ -1,19 +1,51 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Course:</strong>
-  <%= @reservation.course_id %>
-</p>
-
-<p>
-  <strong>Member:</strong>
-  <%= @reservation.member_id %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @reservation.date %>
-</p>
-
-<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
-<%= link_to 'Back', reservations_path %>
+<br/>
+<h1 id="deetHead">Booking Details</h1>
+<br/>
+<%= form_for(@reservation) do |f| %>
+<table align="center" width="800" id="tblDeets">
+  <tbody>
+   <tr>
+     <td>
+      <b><%= f.label "Booking ID:" %></b>
+      <%= f.label @reservation.id %>
+     </td>
+     <td>
+      <b><%= f.label "Booking Date:" %></b>
+      <%= f.label @reservation.date %>
+     </td>
+   </tr>
+   <tr>
+     <td>
+      <b><%= f.label "Created On:" %></b>
+      <%= f.label @reservation.created_at %>
+     </td>
+     <td>
+      <b><%= f.label "Course:" %></b>
+       <%= f.label @reservation.course.name %>
+     </td>
+  </tr>
+  <tr>
+   <td>
+    <b><%= f.label "Booked By:" %></b>
+    <%= f.label @reservation.member.full_name %>
+  </td>
+   <td>
+    <b><%= f.label "Status:" %></b>
+    <% if @reservation.status == "pending" %>
+     <b><%= f.label @reservation.status, class: "pending" %></b>
+    <% elsif @reservation.status == "confirmed" %>
+     <b><%= f.label @reservation.status, class: "confirmed" %></b>
+    <% else %>
+     <b><%= f.label @reservation.status, class: "cancelled" %></b>
+    <% end %>
+   </td>
+  </tr>
+  </tbody>
+</table>
+<br/>
+    <% if @reservation.status == "pending" || @reservation.status == "confirmed" %>
+     <p><%= f.button value="Cancel Reservation" %></p>
+    <% end %>
+<% end %>
+<br/>
+<p><%= link_to 'Back', reservations_path %></p>

@@ -150,9 +150,60 @@ p{ text-align: center;
 h1{ text-align: center;
 }
 
-#tblHead{ background: #66201a;
-          color: white;
+#resTbl thead{ background: #66201a;
+       color: white;
 }
 
-th{ background: #66201a;
+#resTbl tr:nth-child(even){ background-color: #fff7c3;
+}
+
+#resTbl th{ height: 40px;
+}
+
+table td{ height: 35px;
+    text-align: center;
+}
+
+.pending{ color: yellow;
+}
+
+.confirmed{ color: green;
+}
+
+.cancelled{ color: red;
+}
+
+.leftSide{ margin-left: 350px;
+           margin-top: 45px;
+           width: 300px;
+           position: relative;
+}
+
+.rightSide{ text-align: left;
+           width: 300px;
+           margin-left: 825px;
+           margin-top: -175px;
+           position: relative;
+}
+
+#tblDeets td{ text-align: left;
+              font-size: 16px;
+              font-size: 16px;
+              height: 50px;
+}
+
+#tblDeets tr:nth-child(even){ background: white;
+}
+
+#tblDeets { margin-left: 325px;
+}
+
+#deetHead{ background: #66201a;
+           width: 800px;
+           height: 35px;
+          color: white;
+          text-align: center;
+          margin-left: 275px;
+          padding-top: 15px;
+          border-radius: 10px;
 }
