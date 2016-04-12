@@ -14,7 +14,7 @@
 
   <tbody>
     <% @reservations.each do |reservation| %>
-     <% if reservation.member_id == current_member.id %>
+      <% if reservation.member_id == current_member.id %>
       <tr>
         <td><%= reservation.date %></td>
         <td><%= reservation.course.name %></td>

@@ -45,8 +45,6 @@
 <br/>
     <% if @reservation.status == "pending" || @reservation.status == "confirmed" %>
      <p><%= f.button value="Cancel Reservation" %></p>
-    <% else %>
-    <p><b>THIS RESERVATION HAS BEEN CANCELLED</b></p>
     <% end %>
 <% end %>
 <br/>
