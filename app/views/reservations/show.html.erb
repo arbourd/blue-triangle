@@ -44,7 +44,7 @@
 </table>
 <br/>
     <% if @reservation.status == "pending" || @reservation.status == "confirmed" %>
-     <p><%= f.button value="Cancel Reservation" %></p>
+     <p><%= button_to(name="Cancel Reservation", @reservation, method: :delete )   %></p>
     <% end %>
 <% end %>
 <br/>

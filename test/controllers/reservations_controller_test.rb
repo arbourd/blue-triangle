@@ -46,9 +46,10 @@ class ReservationsControllerTest < ActionController::TestCase
   end
 
   test 'should destroy reservation' do
-    assert_difference('Reservation.count', -1) do
+    assert_no_difference('Reservation.count') do
       delete :destroy, id: @reservation
     end
+    assert_equal(assigns(:reservation).status, 'cancelled')
 
     assert_redirected_to reservations_path
   end

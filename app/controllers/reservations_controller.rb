@@ -32,9 +32,8 @@ class ReservationsController < ApplicationController
 
   # DELETE /reservations/1
   def destroy
-    @reservation.destroy
-    redirect_to reservations_url,
-                notice: 'Reservation was successfully destroyed.'
+    @reservation.update(status: 'cancelled')
+    redirect_to reservations_url
   end
 
   private
