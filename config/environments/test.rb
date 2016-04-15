@@ -1,4 +1,9 @@
 Rails.application.configure do
+  if ENV['CI']
+    config.assets.compile = false
+    config.assets.digest = true
+  end
+
   # Settings specified here will take precedence over those in config/application.rb.
   config.action_controller.perform_caching = true
 
