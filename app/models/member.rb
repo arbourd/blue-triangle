@@ -1,3 +1,15 @@
+# == Schema Info
+#
+# Table name: reservations
+#
+#  id                   :integer        not null, primary key
+#  email                :varchar        not null
+#  encrypted_password   :varchar        not null
+#  fname                :varchar        not null
+#  lname                :varchar        not null
+#  active               :boolean        not null, default: true
+#  number               :integer        not null
+#
 class Member < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

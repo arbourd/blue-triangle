@@ -1,3 +1,13 @@
+# == Schema Info
+#
+# Table name: reservations
+#
+#  id             :integer        not null, primary key
+#  course_id      :integer        not null
+#  member_id      :integer        not null
+#  date           :date           not null
+#  status         :integer (enum) not null
+#
 class Reservation < ActiveRecord::Base
   enum status: [:pending, :confirmed, :cancelled]
 

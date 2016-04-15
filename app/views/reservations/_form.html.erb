@@ -16,7 +16,7 @@
       <table style="margin-left: 20px;margin-top: 20px;">
         <tr class="field">
           <td><%= f.label :course_id %></td>
-          <td><%= f.collection_select :course_id, Course.where(active: true).order(:name), :id, :name, include_blank: "Pick a course..." %></td>
+          <td><%= f.collection_select :course_id, Course.active.by_name, :id, :name, include_blank: "Pick a course..." %></td>
         </tr>
         <tr class="field">
           <td><%= f.label :date %></td>
