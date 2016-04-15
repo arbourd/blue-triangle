@@ -1,4 +1,4 @@
-FROM ruby:2.3.0-alpine
+FROM ruby:2.2.4-alpine
 
 ENV APP_HOME /app
 RUN mkdir $APP_HOME
@@ -8,10 +8,11 @@ RUN apk --no-cache add --update \
   libxslt-dev \
   nodejs \
   postgresql-dev
+RUN bundle config build.nokogiri --use-system-libraries
 
 WORKDIR $APP_HOME
 ADD Gemfile* $APP_HOME/
-RUN bundle config build.nokogiri --use-system-libraries \
-  bundle install
+RUN bundle install
 
-ADD . $APP_HOME
+COPY . $APP_HOME
+RUN cp $APP_HOME/config/database.docker.yml $APP_HOME/config/database.yml

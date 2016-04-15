@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  database: postgres
+  pool: 5
+  username: postgres
+  password:
+  host: db
+
+development:
+  <<: *default
+  database: clubeg_dev
+
+test:
+  <<: *default
+  database: clubeg_test
