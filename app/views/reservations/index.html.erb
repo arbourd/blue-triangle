@@ -1,9 +1,9 @@
 <br>
 <h1>My Bookings</h1>
 <br>
-<table id="resTbl" align="center" width="900" cellspacing="0" cellpadding="0">
+<table id="resTbl" align="center" width="800" cellspacing="0" cellpadding="0"  class="sortable">
   <thead>
-    <tr id="tblHead">
+    <tr id="tblHead" >
       <th>Date</th>
       <th>Course</th>
       <th>Booked By</th>
@@ -26,9 +26,21 @@
         <% else %>
         <td class="cancelled"><b><%= reservation.status %></b></td>
         <% end %>
-        <td><%= link_to 'Details', reservation %></td>
+        <!--<td><%= link_to 'Details', reservation %></td>-->
+     
+        <td>
+         <%= link_to image_tag(
+            'details.png',
+            height: 35,
+            margin:0,
+            onmouseover: "this.src='#{asset_path('details_hover.png')}'",
+            onmouseout: "this.src='#{asset_path('details.png')}'"
+          ),
+          reservation
+        %>
+        </td>
       </tr>
-     <% end %>
+      <% end %>
     <% end %>
   </tbody>
 </table>
