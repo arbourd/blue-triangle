@@ -57,10 +57,12 @@
 }
 #articles #month{
     margin: 0;
- 
+    
+  //  padding-top: 10px;
+  //  padding-bottom: 10px;
     text-align: center;
     width:400px;
- 
+    //margin: 0 auto;
     background-color: #000;
     color: white;
     font-size:16px;
@@ -70,38 +72,30 @@
     text-transform: uppercase;
     a{
         text-decoration: none !important;
-        user-select:none;
-        
-        background-color: transparent;
+         user-select:none;
+       // padding: 0 10px;
+       background-color: transparent;
         color: #fff;
     } 
 }
-a{
-    text-decoration: none !important;
-    user-select:none;
-}
-#resTbl td a{
-    float:right;
-    text-decoration: none !important;
-    user-select:none;
-    
-    background-color: transparent;
-    color: #fff;
-    
-}
+ a{
+        text-decoration: none !important;
+        user-select:none;
+
+    }
 #articles ul{
     font-size:11px;
     padding-left: 20px;
 }
  #articles .calendar td a{
     display: block; height:100%;
-    color: white !important;
+   color: white !important;
 
 }
 #articles .calendar td a:hover{
   
-    color: white !important;
-    background-color: #843832 ;
+        color: white !important;
+        background-color: #843832 ;
  
 }
 
@@ -118,5 +112,5 @@ a{
 }
 #prev, #next{
     height:40px; width:40px;
-}
+    }
     
