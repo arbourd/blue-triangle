@@ -38,7 +38,7 @@ class ReservationsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test 'should not show reservation if not owned by member' do
+  test 'should not show reservation if not owned by members' do
     sign_in members(:two)
     assert_raises Pundit::NotAuthorizedError do
       get :show, id: @reservation
@@ -54,7 +54,7 @@ class ReservationsControllerTest < ActionController::TestCase
     assert_redirected_to reservations_path
   end
 
-  test 'should not destroy reservation if not owned by member' do
+  test 'should not destroy reservation if not owned by members' do
     sign_in members(:two)
     assert_no_difference('Reservation.count') do
       assert_raises Pundit::NotAuthorizedError do

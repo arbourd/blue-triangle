@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   devise_for :members, skip: [:registerable], path: '',
                        path_names: { sign_in: 'login', sign_out: 'logout' }
   get 'members/name/:number' => 'members#name'
-
+  get 'members/:id/password' => 'members#password', :as => 'member_pass'
+  put 'members/password' => 'members#change_password', :as => 'change_password'
   resources :courses
   resources :reservations
+  resources :members, :except => :show
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -22,7 +25,7 @@ Rails.application.routes.draw do
 
   # Example resource route with options:
   #   resources :products do
-  #     member do
+  #     members do
   #       get 'short'
   #       post 'toggle'
   #     end

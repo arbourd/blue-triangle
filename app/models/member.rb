@@ -30,4 +30,5 @@ class Member < ActiveRecord::Base
   def reserve?(date)
     return true if number_of_reservations(date) < 1
   end
+
 end
