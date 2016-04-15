@@ -1,0 +1,10 @@
+# For CircleCI
+
+default: &default
+  adapter: postgresql
+  username: ubuntu
+  host: localhost
+  database: circle_ruby_test
+
+test:
+  <<: *default

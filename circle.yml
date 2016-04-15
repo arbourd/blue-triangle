@@ -2,6 +2,8 @@ machine:
   ruby:
     version: 2.3.0
 
-test:
+dependencies:
   pre:
-    - RAILS_ENV=test bundle exec rake assets:precompile
+    - mv config/database.ci.yml config/database.yml
+  post:
+    - RAILS_ENV=test bundle exec rake assets:precompile assets:clean
