@@ -14,7 +14,7 @@
     <ul>
       <% if member_signed_in? %>
         <li><%= link_to 'Book Spot', new_reservation_path %></li>
-        <li><%= link_to 'My Booking', reservations_path %></li>
+        <li><%= link_to 'My Booking', reservations_path, 'data-no-turbolink'=>true %></li>
         <li><%= link_to 'Edit Profile', nil %></li>
         <li class="last"><%= link_to 'Logout', destroy_member_session_path, method: :delete %></li>
         <li class="last"><%= link_to 'Change Password', edit_member_password_path %></li>

@@ -151,17 +151,24 @@ h1{ text-align: center;
 }
 
 #resTbl thead{ background: #66201a;
-       color: white; cursor:pointer;
+       color: white; cursor:pointer;padding-left:10px;text-align: left; 
 }
-
+#resTbl th:hover{ background: #66201a;
+       color: white; cursor:pointer;text-align: left; 
+}
 #resTbl tr:nth-child(even){ background-color: #fff7c3;
 }
 
 #resTbl th{ height: 40px;
 }
-
-table td{ height: 35px;
-    text-align: center;
+#resTbl th td{
+  text-align: left; padding-left: 10px;
+}
+#resTbl th {
+  padding-left: 10px;
+}
+#resTbl td {
+  padding-left: 10px;
 }
 
 .pending{ color: orange;
@@ -269,3 +276,4 @@ table td{ height: 35px;
   -o-border-radius: 5px;
   border-radius: 5px;
 }
+

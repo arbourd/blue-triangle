@@ -1,14 +1,14 @@
 <br>
 <h1>My Bookings</h1>
 <br>
-<table id="resTbl" align="center" width="800" cellspacing="0" cellpadding="0"  class="sortable">
-  <thead>
+<table id="resTbl" align="center" width="800" cellspacing="0" class="sortable">
+  <thead >
     <tr id="tblHead" >
-      <th>Date</th>
+      <th data-defaultsort="desc">Date</th>
       <th>Course</th>
       <th>Booked By</th>
       <th>Status</th>
-      <th colspan="3"></th>
+      <th data-defaultsort="disabled" colspan="3"></th>
     </tr>
   </thead>
 
@@ -16,11 +16,11 @@
     <% @reservations.each do |reservation| %>
       <% if reservation.member_id == current_member.id %>
       <tr>
-        <td><%= reservation.date %></td>
-        <td><%= reservation.course.name %></td>
-        <td><%= reservation.member.full_name %></td>
+        <td ><%= reservation.date %></td>
+        <td ><%= reservation.course.name %></td>
+        <td ><%= reservation.member.full_name %></td>
         <% if reservation.status == "pending" %>
-        <td class="pending"><b><%= reservation.status %></b></td>
+        <td  class="pending"><b><%= reservation.status %></b></td>
         <% elsif reservation.status == "confirmed" %>
         <td class="confirmed"><b><%= reservation.status %></b></td>
         <% else %>
