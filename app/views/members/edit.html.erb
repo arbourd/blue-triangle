@@ -1,0 +1,36 @@
+<h1>Update Your Profile</h1>
+<%= form_for(@member) do |m| %>
+<div class="field">
+<%= m.label 'Id -' %>
+<%= m.label @member.id %>
+</div>
+<br>
+<div class="field">
+<%= m.label 'First' %><br>
+<%= m.text_field :fname %>
+</div>
+<br>
+<div class="field">
+<%= m.label 'Last' %><br>
+<%= m.text_field :lname %>
+</div>
+<br>
+<div class="field">
+<%= m.label 'Email' %><br>
+<%= m.text_field :email %>
+</div>
+<br>
+<div class="field">
+<%= m.label 'Number' %><br>
+<%= m.text_field :number %>
+</div>
+<br>
+<div class="field">
+<%= m.label 'Active' %><br>
+<%= m.text_field :active %>
+</div>
+<br>
+<div class="field">
+<%= m.submit 'Save Changes'%>
+</div>
+<% end %>
