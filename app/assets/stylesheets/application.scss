@@ -214,7 +214,13 @@ h1{ text-align: center;
 }
 
 #tblDeets2 td input[type='text'] { font-size: 16px; size:35;}
-#tblDeets2 th, td{
+#tblDeets2 th{
+  text-align: left;
+  padding-left:20px;
+  font-size: 16px;
+  height: 40px;
+}
+#tblDeets2 td{
   text-align: left;
   padding-left:20px;
   font-size: 16px;
