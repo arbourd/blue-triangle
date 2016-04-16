@@ -198,7 +198,6 @@ h1{ text-align: center;
   text-align: left;
   padding-left:20px;
   font-size: 16px;
-  font-size: 16px;
   height: 40px;
 }
 
@@ -207,9 +206,33 @@ h1{ text-align: center;
   background: #fff7c3;
   margin:0 auto;
 }
+#tblDeets2 {
+  width:400px;
+  background: #fff7c3;
+  margin:0 auto;
+  
+}
+
+#tblDeets2 td input[type='text'] { font-size: 16px; size:35;}
+#tblDeets2 th, td{
+  text-align: left;
+  padding-left:20px;
+  font-size: 16px;
+  height: 40px;
+}
 #deetHead1{
    background: #66201a;
   width: 800px;
+  height: 40px;
+  color: white;
+  text-align: center;
+  line-height:40px;
+  margin:0 auto;
+}
+.deetHead2
+{
+  background: #66201a;
+  width: 400px;
   height: 40px;
   color: white;
   text-align: center;
