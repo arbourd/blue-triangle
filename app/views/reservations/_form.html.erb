@@ -1,17 +1,10 @@
 <%= form_for(@reservation) do |f| %>
   <% if @reservation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
-      <ul>
-        <% @reservation.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <%= render partial: 'errors/error', object: @reservation %>
   <% end %>
 
   <div id="container" style="width:800px; margin:0 auto;">
-    <%= render template: 'reservations/_calendar' %>
+    <%= render partial: 'reservations/calendar', object: @reservation %>
     <div id="left" style="float:left; width:400px; height:400px;" >
       <table style="margin-left: 20px;margin-top: 20px;">
         <tr class="field">
