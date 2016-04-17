@@ -15,3 +15,4 @@ class CoursesController < ApplicationController
     render json: list
   end
 end
+
