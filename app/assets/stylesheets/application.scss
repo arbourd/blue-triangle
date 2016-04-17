@@ -15,6 +15,7 @@
  */
 
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import 'bootstrap';
 @import 'bootstrap-sortable';
 @charset "UTF-8";
 /* Base Styles */
@@ -210,7 +211,7 @@ h1{ text-align: center;
   width:400px;
   background: #fff7c3;
   margin:0 auto;
-  
+
 }
 
 #tblDeets2 td input[type='text'] { font-size: 16px; size:35;}
