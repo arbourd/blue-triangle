@@ -1,16 +1,23 @@
-<br/>
-<div class="goBack" data-no-turbolink>
-  <%=
-    link_to image_tag(
-      'back.png',
-      height: 40,
-      margin: -10,
-      onmouseover: "this.src='#{asset_path('back_hover.png')}'",
-      onmouseout: "this.src='#{asset_path('back.png')}'"
-    ),
-    reservations_path
-  %>
-</div>
-<h1>New Reservation</h1>
-<br/>
-<%= render 'form' %>
+<h1>Book a Tee-Time</h1>
+<%= form_for(@reservation) do |f| %>
+  <h3>Calendar</h3>
+  <p>Select a date to book a tee-time.</p>
+  <%= render partial: 'calendar', locals: {f: f} %>
+
+  <h3>Courses</h3>
+  <p>Select a course</p>
+  <table id="course-table" class="table table-hover">
+    <%= render partial: 'courses', locals: {courses: Course.active.by_name, date: Date.today, f: f} %>
+  </table>
+
+  <h3>Members</h3>
+  <p>Add additional members</p>
+
+
+  <div class="col-xs-6 form-submit">
+    <%= f.submit 'Reset', :type => 'reset', class: 'btn btn-secondary-outline btn-lg' %>
+  </div>
+  <div class="col-xs-6 form-submit">
+    <%= f.submit 'Book', class: 'btn btn-primary-outline btn-lg' %>
+  </div>
+<% end %>
