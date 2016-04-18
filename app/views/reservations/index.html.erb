@@ -16,9 +16,9 @@
     <% @reservations.each do |reservation| %>
       <% if reservation.member_id == current_member.id %>
       <tr>
-        <td ><%= reservation.date %></td>
-        <td ><%= reservation.course.name %></td>
-        <td ><%= reservation.member.full_name %></td>
+        <td><%= reservation.date %></td>
+        <td><%= reservation.course.name %></td>
+        <td><%= reservation.member.full_name %></td>
         <% if reservation.status == "pending" %>
         <td  class="pending"><b><%= reservation.status %></b></td>
         <% elsif reservation.status == "confirmed" %>
@@ -27,7 +27,7 @@
         <td class="cancelled"><b><%= reservation.status %></b></td>
         <% end %>
         <!--<td><%= link_to 'Details', reservation %></td>-->
-     
+
         <td>
          <%= link_to image_tag(
             'details.png',
@@ -44,5 +44,3 @@
     <% end %>
   </tbody>
 </table>
-
-

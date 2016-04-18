@@ -16,6 +16,7 @@ gem 'rails', '4.2.5.1'
 gem 'rollbar'
 gem 'sass-rails', '~> 5.0'
 gem 'sendgrid-ruby'
+gem 'simple_calendar', '~> 2.0'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 

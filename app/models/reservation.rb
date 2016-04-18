@@ -20,19 +20,19 @@ class Reservation < ActiveRecord::Base
   validate :member_bookings_per_course, on: :create
 
   def course_active
-    errors.add(:errors, "Course '#{course.name}' is inactive") unless course.active?
+    errors.add(:base, "Course '#{course.name}' is inactive") unless course.active?
   end
 
   def course_available_slots
     unless course.available?(date)
-      errors.add(:errors, "Course '#{course.name}' is fully booked for #{date}")
+      errors.add(:base, "Course '#{course.name}' is fully booked for #{date}")
     end
   end
 
   def course_within_max_days
     unless course.date_within_max_days?(date)
       errors.add(
-        :errors,
+        :base,
         "Cannot book more than #{Course.MAX_DAYS} in advance for " \
         "'#{course.name}'"
       )
@@ -42,8 +42,8 @@ class Reservation < ActiveRecord::Base
   def member_bookings_per_course
     unless member.reserve?(date)
       errors.add(
-        :errors,
-        "Sorry, can only book 1 course per day for user #{member.full_name}"
+        :base,
+        "Can only book 1 course per day for user #{member.full_name}"
       )
     end
   end

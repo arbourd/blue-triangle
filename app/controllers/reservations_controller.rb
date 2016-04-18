@@ -24,8 +24,10 @@ class ReservationsController < ApplicationController
     @reservation.member = current_member
 
     if @reservation.save
-      redirect_to @reservation, notice: 'Reservation was successfully created.'
+      redirect_to @reservation, success: 'Tee-time booked.'
     else
+      flash[:error] = 'Could not save booking: ' \
+                      "#{@reservation.errors.full_messages.to_sentence}"
       render :new
     end
   end
