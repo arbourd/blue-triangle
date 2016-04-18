@@ -1,29 +1,32 @@
 <nav class="navbar navbar-light bg-faded">
-  <div class="container">
-    <a class="navbar-brand" href="/"><%= image_tag 'egcircle70.png'%></a>
-    <a class="navbar-brand" href="/">ClubEG</a>
+  <a class="navbar-brand" href="/"><%= image_tag 'egcircle70.png'%></a>
+  <a class="navbar-brand" href="/">ClubEG</a>
+  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+    <br/>&nbsp;&nbsp;&#9776;
+  </button>
+  <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
     <ul class="nav navbar-nav">
-    <% if member_signed_in? %>
-      <li class="nav-item">
-        <%= link_to 'Book Tee-Time', new_reservation_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'My Bookings', reservations_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item pull-xs-right">
-        <%= link_to 'Logout', destroy_member_session_path, method: :delete, class: 'nav-link' %>
-      </li>
-      <li class="nav-item pull-xs-right">
-        <%= link_to 'Change Password', member_pass_path(current_member), class: 'nav-link' %>
-      </li>
-      <li class="nav-item pull-xs-right">
-        <%= link_to 'Edit Profile', edit_member_path(current_member), class: 'nav-link' %>
-      </li>
-    <% else %>
-      <li class="nav-item pull-xs-right">
-        <%= link_to 'Login', new_member_session_path, class: 'nav-link' %>
-      </li>
-    <% end %>
+      <% if member_signed_in? %>
+          <li class="nav-item">
+            <%= link_to 'Book Tee-Time', new_reservation_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'My Bookings', reservations_path, class: 'nav-link' %>
+          </li>
+            <li class="nav-item pull-xs-right">
+              <%= link_to 'Logout', destroy_member_session_path, method: :delete, class: 'nav-link' %>
+            </li>
+            <li class="nav-item pull-xs-right">
+              <%= link_to 'Change Password', member_pass_path(current_member), class: 'nav-link' %>
+            </li>
+            <li class="nav-item pull-xs-right">
+              <%= link_to 'Edit Profile', edit_member_path(current_member), class: 'nav-link' %>
+            </li>
+      <% else %>
+          <li class="nav-item pull-xs-right">
+            <%= link_to 'Login', new_member_session_path, class: 'nav-link' %>
+          </li>
+      <% end %>
     </ul>
   </div>
 </nav>
