@@ -19,6 +19,8 @@ class Reservation < ActiveRecord::Base
   validate :course_within_max_days, on: :create
   validate :member_bookings_per_course, on: :create
 
+  MAX_DAYS = 60
+
   def course_active
     errors.add(:base, "Course '#{course.name}' is inactive") unless course.active?
   end
