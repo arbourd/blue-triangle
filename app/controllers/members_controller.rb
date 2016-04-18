@@ -24,10 +24,12 @@ class MembersController < ApplicationController
 # PATCH members/:id
   def update
     @member = current_member
-    if @member.update_attributes(members_params)
-      redirect_to reservations_path
+    if @member.update(members_params)
+      redirect_to edit_member_path, notice: 'Success!'
     else
-      redirect_to edit_member_path
+      flash[:error] = 'Error updating profile: ' \
+                      "#{@member.errors.full_messages.to_sentence}"
+      render :edit
     end
   end
 
@@ -38,14 +40,16 @@ class MembersController < ApplicationController
       sign_in @member, :bypass => true
       redirect_to root_path
     else
-      redirect_to member_pass_path(@member), notice: 'An error occured, password not changed'
+      flash[:error] = 'Error changing password: ' \
+                      "#{@member.errors.full_messages.to_sentence}"
+      render :password
     end
   end
 
   private
 
   def members_params
-    params.require(:member).permit(:fname, :lname, :email, :number)
+    params.require(:member).permit(:fname, :lname)
   end
 
   def members_pass_params

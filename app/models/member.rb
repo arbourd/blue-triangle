@@ -22,6 +22,8 @@ class Member < ActiveRecord::Base
     "#{fname} #{lname}"
   end
 
+  validates_presence_of :fname, :lname
+
   def number_of_reservations(date)
     raise Exception unless date.is_a?(Date)
     reservations.where(date: date).count
