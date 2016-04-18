@@ -5,3 +5,4 @@ class CoursesController < ApplicationController
     @courses = Course.active.by_name
   end
 end
+
