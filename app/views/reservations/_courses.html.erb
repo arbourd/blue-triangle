@@ -1,3 +1,4 @@
+<%= hidden_field(:reservation, :date, value: date || Date.today) %>
 <thead>
   <tr>
     <th>Course Name</th>
@@ -13,7 +14,7 @@
       <td style="text-align: center;"><%= "#{course.available_slots(date)} / #{course.slots}" %></td>
       <td style="text-align: center;">
         <label class="btn btn-success-outline">&#10003;
-          <%= f.radio_button :course_id, course.id, style: 'display: none;' %>
+          <%= radio_button :reservation, :course_id, course.id %>
         </label>
       </td>
     </tr>

@@ -34,12 +34,12 @@
   <div class="row">
     <div class="col-xs-6" style="padding-top: 0;">
       <%= link_to "< Previous",
-          url_for(params.merge(start_date: date_range.first - 1.day)),
+          url_for(action: 'new', start_date: date_range.first - 1.day),
           remote: true %>
     </div>
     <div class="col-xs-6" style="padding-top: 0;">
       <%= link_to "Next >",
-          url_for(params.merge(start_date: date_range.last + 1.day)),
+          url_for(action: 'new', start_date: date_range.last + 1.day),
           remote: true,
           class: 'pull-xs-right' %>
     </div>

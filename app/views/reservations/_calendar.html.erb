@@ -1,5 +1,9 @@
 <%= month_calendar do |date| %>
-   <%= link_to_if(date >= Date.today && date <= Date.today + Course::MAX_DAYS, date.day, 'testing', remote: true)  {"#{date.day}"}
-  %>
+  <% if date >= Date.today && date <= Date.today + Course::MAX_DAYS %>
+  <%= label(:date, date.to_s) do %>
+    <%= link_to("#{date.day}", courses_path(date: date), onclick: "setDate(#{date.to_json})", remote: true) %>
+  <% end %>
+  <% else %>
+  <%= "#{date.day}" %>
+  <% end %>
 <% end %>
-<%= hidden_field(:reservation, :edit, value: Date.today) %>
