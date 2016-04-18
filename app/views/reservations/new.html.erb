@@ -1,16 +1,6 @@
-<br/>
-<div class="goBack" data-no-turbolink>
-  <%=
-    link_to image_tag(
-      'back.png',
-      height: 40,
-      margin: -10,
-      onmouseover: "this.src='#{asset_path('back_hover.png')}'",
-      onmouseout: "this.src='#{asset_path('back.png')}'"
-    ),
-    reservations_path
-  %>
-</div>
-<h1>New Reservation</h1>
-<br/>
+<h1>Book a Tee-Time</h1>
+<p>Select a date to book a tee-time.</p>
+<%= month_calendar do |date| %>
+  <%= date.day %>
+<% end %>
 <%= render 'form' %>
