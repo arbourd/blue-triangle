@@ -2,4 +2,4 @@
    <%= link_to_if(date >= Date.today && date <= Date.today + Course::MAX_DAYS, date.day, 'testing', remote: true)  {"#{date.day}"}
   %>
 <% end %>
-<%= f.hidden_field(:date, value: Date.today) %>
+<%= hidden_field(:reservation, :edit, value: Date.today) %>
