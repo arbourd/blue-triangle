@@ -1,46 +1,26 @@
-<br>
 <h1>My Bookings</h1>
-<br>
-<table id="resTbl" align="center" width="800" cellspacing="0" class="sortable">
+<table class="table sortable">
   <thead >
-    <tr id="tblHead" >
       <th data-defaultsort="desc">Date</th>
       <th>Course</th>
-      <th>Booked By</th>
-      <th>Status</th>
-      <th data-defaultsort="disabled" colspan="3"></th>
+      <th class="text-xs-center">Status</th>
+      <th data-defaultsort="disabled" class="text-xs-center"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @reservations.each do |reservation| %>
-      <% if reservation.member_id == current_member.id %>
       <tr>
         <td><%= reservation.date %></td>
         <td><%= reservation.course.name %></td>
-        <td><%= reservation.member.full_name %></td>
-        <% if reservation.status == "pending" %>
-        <td  class="pending"><b><%= reservation.status %></b></td>
-        <% elsif reservation.status == "confirmed" %>
-        <td class="confirmed"><b><%= reservation.status %></b></td>
+        <% if reservation.status == 'pending' %>
+          <td class="text-xs-center text-warning"><%= reservation.status %></td>
+        <% elsif reservation.status == 'confirmed' %>
+          <td class="text-xs-center text-success"><%= reservation.status %></td>
         <% else %>
-        <td class="cancelled"><b><%= reservation.status %></b></td>
+          <td class="text-xs-center text-danger"><%= reservation.status %></td>
         <% end %>
-        <!--<td><%= link_to 'Details', reservation %></td>-->
-
-        <td>
-         <%= link_to image_tag(
-            'details.png',
-            height: 35,
-            margin:0,
-            onmouseover: "this.src='#{asset_path('details_hover.png')}'",
-            onmouseout: "this.src='#{asset_path('details.png')}'"
-          ),
-          reservation
-        %>
-        </td>
+        <td class="text-xs-center"><%= link_to 'Details', reservation, class: 'btn btn-primary-outline' %></td>
       </tr>
-      <% end %>
     <% end %>
   </tbody>
 </table>

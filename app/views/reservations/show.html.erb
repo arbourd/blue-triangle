@@ -1,46 +1,39 @@
-<h2>Booking Details</h2>
+<h1>Booking Details</h1>
 <%= form_for(@reservation) do |f| %>
-  <table class="table">
-    <tbody>
-      <tr>
-        <td>
-          <b><%= f.label "Booking ID:" %></b>
-          <%= f.label @reservation.id %>
-        </td>
-        <td>
-          <b><%= f.label "Booking Date:" %></b>
-          <%= f.label @reservation.date %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <b><%= f.label "Created On:" %></b>
-        </td>
-        <td>
-          <b><%= f.label "Course:" %></b>
-          <%= f.label @reservation.course.name %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <b><%= f.label "Booked By:" %></b>
-          <%= f.label @reservation.member.full_name %>
-        </td>
-        <td>
-          <b><%= f.label "Status:" %></b>
-          <% if @reservation.status == "pending" %>
-          <b><%= f.label @reservation.status, class: 'pending' %></b>
-          <% elsif @reservation.status == "confirmed" %>
-          <b><%= f.label @reservation.status, class: 'confirmed' %></b>
-          <% else %>
-          <b><%= f.label @reservation.status, class: 'cancelled' %></b>
-          <% end %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <br/>
-  <% if @reservation.status == 'pending' || @reservation.status == 'confirmed' %>
-    <p><%= button_to(name='Cancel Reservation', @reservation, method: :delete)   %></p>
-  <% end %>
+  <div class="form-group row">
+    <%= f.label 'Date', class: 'col-sm-2 form-control-label' %>
+    <div class="col-sm-10 form-control-label">
+      <%= f.label @reservation.date %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label 'Course', class: 'col-sm-2 form-control-label' %>
+    <div class="col-sm-10 form-control-label">
+      <%= f.label @reservation.course.name %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label 'Date booked', class: 'col-sm-2 form-control-label' %>
+    <div class="col-sm-10 form-control-label">
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label 'Status', class: 'col-sm-2 form-control-label' %>
+    <div class="col-sm-10 form-control-label">
+      <% if @reservation.status == 'pending' %>
+        <%= f.label @reservation.status, class: 'text-warning' %>
+      <% elsif @reservation.status == 'confirmed' %>
+        <%= f.label @reservation.status, class: 'text-success' %>
+      <% else %>
+        <%= f.label @reservation.status, class: 'text-danger' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-offset-2 col-sm-10">
+      <% unless @reservation.status == 'cancelled' %>
+        <%= f.submit 'Cancel Tee-Time', class: 'btn btn-danger-outline' %>
+      <% end %>
+    </div>
+  </div>
 <% end %>
