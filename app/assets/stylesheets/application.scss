@@ -19,6 +19,23 @@
 @import 'bootstrap-sortable';
 @charset 'UTF-8';
 
+h1 {
+  margin-bottom: 1rem;
+}
+
+h3 {
+  margin-top: 3rem;
+}
+
+.form-submit {
+  margin-top: 2rem;
+  width: 50%;
+
+  input {
+    width: 100%;
+  }
+}
+
 .navbar-brand,
 .navbar-nav li a {
   height: 80px;

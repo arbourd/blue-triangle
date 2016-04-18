@@ -10,10 +10,10 @@
 class Course < ActiveRecord::Base
   has_many :reservations
 
-  MAX_DAYS = 60
-
   scope :active, -> { where(active: true) }
   scope :by_name, -> { order(:name) }
+
+  MAX_DAYS = 60
 
   def available_slots(date)
     raise Exception unless date.is_a?(Date)

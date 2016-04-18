@@ -6,17 +6,11 @@
   </tr>
 </thead>
 <tbody>
-  <div class="btn-group" data-toggle="buttons">
   <% courses.each do |course| %>
     <tr>
       <td><%= "#{course.name}" %></td>
       <td><%= "#{course.available_slots(date)} / #{course.slots}" %></td>
-      <td>
-        <label class="btn btn-success-outline">&#10003;
-          <%= f.radio_button :course_id, course.id, style: 'display: none;' %>
-        </label>
-      </td>
+      <td>Select me.</td>
     </tr>
   <% end %>
-  </div>
 </tbody>
