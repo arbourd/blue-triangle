@@ -36,6 +36,7 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation.update(status: 'cancelled')
     redirect_to reservations_url
+    flash[:notice] = 'Reservation Cancelled'
   end
 
   private

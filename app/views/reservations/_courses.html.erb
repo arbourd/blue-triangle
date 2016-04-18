@@ -1,8 +1,9 @@
+<%= hidden_field(:reservation, :date, value: date || Date.today) %>
 <thead>
   <tr>
     <th>Course Name</th>
-    <th>Spots Available</th>
-    <th>Select</th>
+    <th style="text-align: center;">Spots Available</th>
+    <th style="text-align: center;">Select</th>
   </tr>
 </thead>
 <tbody>
@@ -10,10 +11,10 @@
   <% courses.each do |course| %>
     <tr>
       <td><%= "#{course.name}" %></td>
-      <td><%= "#{course.available_slots(date)} / #{course.slots}" %></td>
-      <td>
+      <td style="text-align: center;"><%= "#{course.available_slots(date)} / #{course.slots}" %></td>
+      <td style="text-align: center;">
         <label class="btn btn-success-outline">&#10003;
-          <%= f.radio_button :course_id, course.id, style: 'display: none;' %>
+          <%= radio_button :reservation, :course_id, course.id %>
         </label>
       </td>
     </tr>

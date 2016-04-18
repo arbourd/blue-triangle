@@ -2,22 +2,23 @@
 <%= form_for(@reservation) do |f| %>
   <h3>Calendar</h3>
   <p>Select a date to book a tee-time.</p>
-  <%= render partial: 'calendar', locals: {f: f} %>
+  <div id="calendar">
+    <%= render partial: 'calendar' %>
+  </div>
 
   <h3>Courses</h3>
   <p>Select a course</p>
-  <table id="course-table" class="table table-hover">
-    <%= render partial: 'courses', locals: {courses: Course.active.by_name, date: Date.today, f: f} %>
+  <table id="courses" class="table table-sm table-hover courses">
   </table>
 
   <h3>Members</h3>
   <p>Add additional members</p>
-
-
-  <div class="col-xs-6 form-submit">
-    <%= f.submit 'Reset', :type => 'reset', class: 'btn btn-secondary-outline btn-lg' %>
-  </div>
-  <div class="col-xs-6 form-submit">
-    <%= f.submit 'Book', class: 'btn btn-primary-outline btn-lg' %>
+  <div class="row">
+    <div class="col-xs-6 form-submit">
+      <%= f.submit 'Reset', :type => 'reset', class: 'btn btn-secondary-outline btn-lg' %>
+    </div>
+    <div class="col-xs-6 form-submit">
+      <%= f.submit 'Book', class: 'btn btn-primary-outline btn-lg' %>
+    </div>
   </div>
 <% end %>

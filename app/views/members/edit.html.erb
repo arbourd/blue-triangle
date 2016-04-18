@@ -1,36 +1,22 @@
 <br/>
 <h2 class="deetHead2">Update Your Profile</h2>
 <%= form_for(@member) do |m| %>
-<table id="tblDeets2" width="400"> 
-<tr>
-
-<th width="30%"> <%= m.label 'Id:' %></th>
-<td><%= m.label @member.id %></td>
-
-</tr>
-<tr >
-<th><%= m.label 'First:' %></th>
-<td ><%= m.text_field :fname, size:"30"%></td>
-</tr>
-<tr>
-<th><%= m.label 'Last:' %></th>
-<td><%= m.text_field :lname, size:"30" %></td>
-</tr>
-<tr>
-<th><%= m.label 'Email:' %></th>
-<td><%= m.text_field :email, size:"30" %></td>
-</tr>
-<tr >
-<th><%= m.label 'Number:' %></td>
-<td><%= m.text_field :number, size:"30" %></td>
-</tr>
-<tr>
-<th><%= m.label 'Active:' %></th>
-<td><%= m.text_field :active, size:"30" %></td>
-</tr>
-</table>
-<br>
-<div class="field">
-<%= m.submit 'Save Changes', class:"btype1"%>
-</div>
+    <table id="tblDeets2" width="400">
+      <tr >
+        <th><%= m.label 'First:' %></th>
+        <td ><%= m.text_field :fname, size:"30"%></td>
+      </tr>
+      <tr>
+        <th><%= m.label 'Last:' %></th>
+        <td><%= m.text_field :lname, size:"30" %></td>
+      </tr>
+      <tr>
+        <th><%= m.label 'Email:' %></th>
+        <td><h6><%= @member.email%></h6></td>
+      </tr>
+    </table>
+    <br>
+    <div class="field">
+      <%= m.submit 'Save Changes', class:"btype1"%>
+    </div>
 <% end %>
