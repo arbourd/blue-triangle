@@ -19,8 +19,27 @@
 @import 'bootstrap-sortable';
 @charset 'UTF-8';
 
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.footer {
+  background-color: rgba(0, 0, 0, .05);
+  bottom: 0;
+  height: 60px;
+  line-height: 60px;
+  position: absolute;
+  width: 100%;
+}
+
 h1 {
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 
 h3 {
