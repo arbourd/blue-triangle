@@ -1,18 +1,7 @@
 <div class="simple-calendar">
   <div class="row">
-    <div class="col-sm-4">
-      <%= link_to "< Previous",
-          url_for(params.merge(start_date: date_range.first - 1.day)),
-          remote: true %>
-    </div>
-    <div class="title col-sm-4">
-     <h4><%= I18n.t("date.month_names")[start_date.month] %> <%= start_date.year %></h4>
-    </div>
-    <div class="col-sm-4">
-      <%= link_to "Next >",
-          url_for(params.merge(start_date: date_range.last + 1.day)),
-          remote: true,
-          class: 'pull-xs-right' %>
+    <div class="title col-s-12">
+      <h4><%= I18n.t('date.month_names')[start_date.month] %> <%= start_date.year %></h4>
     </div>
   </div>
   <table class="table table-bordered">
@@ -42,4 +31,17 @@
       <% end %>
     </tbody>
   </table>
+  <div class="row">
+    <div class="col-xs-6" style="padding-top: 0;">
+      <%= link_to "< Previous",
+          url_for(action: 'new', start_date: date_range.first - 1.day),
+          remote: true %>
+    </div>
+    <div class="col-xs-6" style="padding-top: 0;">
+      <%= link_to "Next >",
+          url_for(action: 'new', start_date: date_range.last + 1.day),
+          remote: true,
+          class: 'pull-xs-right' %>
+    </div>
+  </div>
 </div>
