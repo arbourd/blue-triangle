@@ -35,7 +35,7 @@
     </div>
     <div class="col-sm-10">
       <% unless @reservation.status == 'cancelled' %>
-        <%= f.submit 'Cancel Tee-Time', class: 'btn btn-danger-outline' %>
+        <%=button_to "Cancel Tee-Time", @reservation, method: :delete, class: 'btn btn-danger-outline' %>
       <% end %>
     </div>
   </div>

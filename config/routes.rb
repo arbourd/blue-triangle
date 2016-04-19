@@ -5,6 +5,7 @@ Rails.application.routes.draw do
                        path_names: { sign_in: 'login', sign_out: 'logout' }
   get 'members/name/:number' => 'members#name'
   get 'members/:id/password' => 'members#password', :as => 'member_pass'
+  get '/reservations/:id/confirm' => 'reservations#confirm'
   put 'members/password' => 'members#change_password', :as => 'change_password'
   resources :courses
   resources :reservations
