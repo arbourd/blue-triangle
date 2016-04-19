@@ -1,0 +1,7 @@
+<tr data-number="<%= member.number %>">
+  <td><%= "#{member.fname} #{member.lname[0,1]}." %></td>
+  <td class="text-xs-center"><%= "#{member.number}" %></td>
+  <td class="text-xs-center">
+    <label class="btn btn-danger-outline" onclick="removeUser(<%= member.number %>)">x</label>
+  </td>
+</tr>
