@@ -38,7 +38,7 @@ class MembersController < ApplicationController
     @member = Member.find(current_member.id)
     if @member.update_with_password(members_pass_params)
       sign_in @member, :bypass => true
-      redirect_to root_path
+      redirect_to member_pass_path(@member), notice: 'Password changed!'
     else
       flash[:error] = 'Error changing password: ' \
                       "#{@member.errors.full_messages.to_sentence}"
