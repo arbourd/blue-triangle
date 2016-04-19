@@ -8,11 +8,31 @@
 
   <h3>Courses</h3>
   <p>Select a course</p>
-  <table id="courses" class="table table-sm table-hover courses">
-  </table>
+  <table id="courses" class="table table-sm table-hover courses"></table>
 
   <h3>Members</h3>
   <p>Add additional members</p>
+  <div class="row">
+    <div class="col-sm-10">
+      <%= text_field_tag 'member_number',  nil, placeholder: 'Member number ie. 1234', class: 'form-control' %>
+    </div>
+    <div class="col-sm-2 text-xs-right">
+      <%= link_to '+', '#!', class: 'btn btn-success-outline', onclick: 'makeUserRequest()' %>
+    </div>
+  </div>
+  <div id="members-error" style="margin-top: 1rem;" class="text-danger"></div>
+  <table class="table" style="margin-top: 1rem;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th class="text-xs-center">Number</th>
+        <th class="text-xs-center">Remove</th>
+      </tr>
+    </thead>
+    <tbody id="members">
+    </tbody>
+  </table>
+
   <div class="row">
     <div class="col-xs-6 form-submit">
       <%= link_to 'Cancel', reservations_path, class: 'btn btn-secondary-outline btn-lg' %>

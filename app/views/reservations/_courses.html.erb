@@ -2,8 +2,8 @@
 <thead>
   <tr>
     <th>Course Name</th>
-    <th style="text-align: center;">Spots Available</th>
-    <th style="text-align: center;">Select</th>
+    <th class="text-xs-center">Spots Available</th>
+    <th class="text-xs-center">Select</th>
   </tr>
 </thead>
 <tbody>
@@ -11,8 +11,8 @@
   <% courses.each do |course| %>
     <tr>
       <td><%= "#{course.name}" %></td>
-      <td style="text-align: center;"><%= "#{course.available_slots(date)} / #{course.slots}" %></td>
-      <td style="text-align: center;">
+      <td class="text-xs-center"><%= "#{course.available_slots(date)} / #{course.slots}" %></td>
+      <td class="text-xs-center">
         <label class="btn btn-success-outline">&#10003;
           <%= radio_button :reservation, :course_id, course.id %>
         </label>

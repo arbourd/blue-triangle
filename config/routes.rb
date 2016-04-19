@@ -3,12 +3,22 @@ Rails.application.routes.draw do
 
   devise_for :members, skip: [:registerable], path: '',
                        path_names: { sign_in: 'login', sign_out: 'logout' }
-  get 'members/name/:number' => 'members#name'
-  get 'members/:id/password' => 'members#password', :as => 'member_pass'
-  put 'members/password' => 'members#change_password', :as => 'change_password'
+
   resources :courses
-  resources :reservations
-  resources :members, :except => :show
+  resources :members, only: [:edit, :update] do
+    collection do
+      get 'name/:number' => 'members#name', as: 'name'
+      put 'password' => 'members#change_password', as: 'change_password'
+    end
+    member do
+      get 'password' => 'members#password', as: 'password'
+    end
+  end
+  resources :reservations do
+    member do
+      get 'confirm' => 'reservations#confirm', as: 'confirm'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

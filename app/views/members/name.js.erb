@@ -1,0 +1,13 @@
+<% if @member %>
+var member = true;
+<% else %>
+var member = false;
+<% end %>
+
+if (member === true) {
+  $("#members-error").html("");
+  $("#members").append("<%= escape_javascript render partial: 'reservations/members', locals: {member: @member} if @member %>");
+}
+else {
+  $("#members-error").html("Member not found");
+}

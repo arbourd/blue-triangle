@@ -39,6 +39,20 @@ class ReservationsController < ApplicationController
     flash[:notice] = 'Reservation Cancelled'
   end
 
+  # GET /reservations/:id/confirm
+  def confirm
+    id = params[:id]
+    redirect_to reservation_path
+    if Reservation.find_by(id: id).status == 'cancelled'
+      flash[:error] = 'Cannot confirm a cancelled reservation'
+    elsif Reservation.find_by(id: id).status == 'confirmed'
+      flash[:notice] = 'Reservation is already confirmed'
+    else
+      Reservation.find_by(id: id).update(status: 'confirmed')
+      flash[:notice] = 'Reservation confirmed!'
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
