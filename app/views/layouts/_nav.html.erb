@@ -1,10 +1,10 @@
 <nav class="navbar navbar-light bg-faded">
   <a class="navbar-brand" href="/"><%= image_tag 'egcircle70.png'%></a>
   <a class="navbar-brand" href="/">ClubEG</a>
-  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
-    <br/>&nbsp;&nbsp;&#9776;
+  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar">
+    &nbsp;&nbsp;&#9776;
   </button>
-  <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+  <div class="collapse navbar-toggleable-xs" id="navbar">
     <ul class="nav navbar-nav">
       <% if member_signed_in? %>
       <li class="nav-item">
@@ -15,7 +15,8 @@
       <li class="nav-item">
         <%= link_to 'My Bookings',
                     reservations_path,
-                    class: "nav-link #{'active' if current_page?(reservations_path)}" %>
+                    class: "nav-link #{'active' if current_page?(reservations_path)}",
+                    'data-no-turbolink' => true %>
       </li>
       <li class="nav-item pull-xs-right">
         <%= link_to 'Logout', destroy_member_session_path, method: :delete, class: 'nav-link' %>
